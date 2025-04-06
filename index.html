@@ -5,142 +5,265 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anti-Cheat Directory</title>
     <style>
-        /* Global Styling */
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: linear-gradient(135deg, #1e1e2f, #2a2a48);
-            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
         }
 
-        h1 {
-            margin-top: 20px;
-            font-size: 2.5rem;
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 1.8rem;
         }
 
-        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            padding: 20px;
+        }
+
         table {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
+            width: 100%;
             border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: white;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         th, td {
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 12px;
             text-align: left;
+            border-bottom: 1px solid #ddd;
         }
 
         th {
-            background: rgba(255, 255, 255, 0.2);
-            font-size: 1.1rem;
-        }
-
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.05);
+            background-color: #34495e;
+            color: white;
         }
 
         tr:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transition: 0.3s;
+            background-color: #f1f1f1;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            table {
-                width: 100%;
-                font-size: 0.9rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            th, td {
-                padding: 10px;
-            }
-        }
         a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 10px;
+                background: white;
+            }
+
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+        body.dark-mode {
+    background-color: #1e272e;
+    color: #dcdde1;
 }
 
-a:hover {
-    color: #ffcc00;
-    text-decoration: underline;
+body.dark-mode h1 {
+    background-color: #2f3640;
 }
+
+body.dark-mode table {
+    background-color: #2f3640;
+    color: #f5f6fa;
+}
+
+body.dark-mode th {
+    background-color: #353b48;
+}
+
+body.dark-mode tr:hover {
+    background-color: #3c4450;
+}
+
+body.dark-mode a {
+    color: #00a8ff;
+}
+
     </style>
 </head>
 <body>
-
-    <h1 style="font-size: 3rem; color: #ffff;">Anti-Cheat Directory</h1>
-
-    <table>
-        <tr>
-            <th>Anti-Cheat</th>
-            <th>Support Level</th>
-            <th>Detection Method</th>
-            <th>Significant Games</th>
-            <th>Developers</th>
-        </tr>
-        <tr>
-            <td><a href="https://support-valorant.riotgames.com/hc/en-us/articles/360046160933-What-is-Vanguard"target="_blank">Riot Vanguard</a></td>
-            <td>Kernel-mode</td>
-            <td>Behavior & signature-based</td>
-            <td>Valorant</td>
-            <td>Riot Games</td>
-        </tr>
-        <tr>
-            <td><a href="https://www.easy.ac/en-US"target="_blank"> Anti-Cheat</a></td>
-            <td>Kernel-mode</td>
-            <td>Signature, heuristics, ML</td>
-            <td>Apex Legends, Fortnite, Rust</td>
-            <td>Epic Games</td>
-        </tr>
-        <tr>
-            <td><a href="https://www.battleye.com/"target="blank"> BattlEye</a></td>
-            <td>Kernel-mode</td>
-            <td>Behavior analysis, HWID ban</td>
-            <td>PUBG, Escape from Tarkov</td>
-            <td>BattlEye Innovations</td>
-        </tr>
-        <tr>
-            <td><a href="https://help.steampowered.com/en/faqs/view/571A-97DA-70E9-FF74"target="_blank">Valve Anti-Cheat (VAC)</a></td>
-            <td>User-mode</td>
-            <td>Signature-based</td>
-            <td>CS2, Dota 2, TF2</td>
-            <td>Valve Corporation</td>
-        </tr>
-        <tr>
-            <td><a href="https://www.callofduty.com/blog/2025/03/call-of-duty-ricochet-black-ops-6-warzone-season-three-anti-cheat-update"target="_blank"> Ricochet(Hyperion)</a></td>
-            <td>Kernel-mode</td>
-            <td>Kernel-level monitoring</td>
-            <td>Call of Duty: Warzone, MWIII</td>
-            <td>Activision</td>
-        </tr>
-        <tr>
-            <td><a href="https://dev.epicgames.com/docs/game-services/anti-cheat"target="_blank">Epic Online Services (EOS) Anti-Cheat</a></td>
-            <td>User-mode</td>
-            <td>Cloud-based, signature analysis</td>
-            <td>Fall Guys, Rocket League</td>
-            <td>Epic Games</td>
-        </tr>
-        <tr>
-            <td><a href="https://www.evenbalance.com/"target="_blank"> PunkBuster</a></td>
-            <td>User-mode</td>
-            <td>Signature & screenshot-based</td>
-            <td>Battlefield 3 & 4, Far Cry 3</td>
-            <td>Even Balance, Inc.</td>
-        </tr>
-    </table>
-
+    <header>Anti-Cheat Directory</header>
+    <button onclick="toggleDarkMode()" id="darkToggle" style="margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; background-color: #273c75; color: white; font-size: 14px; cursor: pointer;">
+        Toggle Dark Mode
+    </button>
+    
+    <div style="padding: 20px; text-align: center;">
+        <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search anti-cheat, developer, game..." style="padding: 10px; width: 80%; max-width: 400px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px;">
+        <select id="supportFilter" onchange="filterTable()" style="padding: 10px; font-size: 16px;">
+            <option value="">All Support Levels</option>
+            <option value="Kernel-mode">Kernel-mode</option>
+            <option value="User-mode">User-mode</option>
+        </select>
+    
+        <select id="detectionFilter" onchange="filterTable()" style="padding: 10px; font-size: 16px;">
+            <option value="">All Detection Methods</option>
+            <option value="Behavior">Behavior-based</option>
+            <option value="Signature">Signature-based</option>
+            <option value="ML">Machine Learning</option>
+            <option value="HWID">HWID Ban</option>
+            <option value="Screenshot">Screenshot</option>
+            <option value="Kernel">Kernel Monitoring</option>
+        </select>
+    </div>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Anti-Cheat</th>
+                    <th>Support Level</th>
+                    <th>Detection Method</th>
+                    <th>Significant Games</th>
+                    <th>Developers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="https://www.riotgames.com/en/technology/riot-vanguard" target="_blank">Riot Vanguard</a></td>
+                    <td data-label="Support Level">Kernel-mode</td>
+                    <td data-label="Detection Method">Behavior & signature-based</td>
+                    <td data-label="Games">Valorant</td>
+                    <td data-label="Developers">Riot Games</td>
+                </tr>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="https://www.easy.ac/en-us/" target="_blank">Easy Anti-Cheat</a></td>
+                    <td data-label="Support Level">Kernel-mode</td>
+                    <td data-label="Detection Method">Signature, heuristics, ML</td>
+                    <td data-label="Games">Apex Legends, Fortnite, Rust</td>
+                    <td data-label="Developers">Epic Games</td>
+                </tr>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="https://www.battleye.com/" target="_blank">BattlEye</a></td>
+                    <td data-label="Support Level">Kernel-mode</td>
+                    <td data-label="Detection Method">Behavior analysis, HWID ban</td>
+                    <td data-label="Games">PUBG, Tarkov</td>
+                    <td data-label="Developers">BattlEye Innovations</td>
+                </tr>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="https://developer.valvesoftware.com/wiki/Valve_Anti-Cheat_System_(VAC)" target="_blank">Valve Anti-Cheat (VAC)</a></td>
+                    <td data-label="Support Level">User-mode</td>
+                    <td data-label="Detection Method">Signature-based</td>
+                    <td data-label="Games">CS2, Dota 2, TF2</td>
+                    <td data-label="Developers">Valve Corporation</td>
+                </tr>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="https://www.callofduty.com/blog/2021/10/Call-of-Duty-anti-cheat-RICOCHET-announcement" target="_blank">Ricochet</a></td>
+                    <td data-label="Support Level">Kernel-mode</td>
+                    <td data-label="Detection Method">Kernel-level monitoring</td>
+                    <td data-label="Games">CoD: Warzone, MWIII</td>
+                    <td data-label="Developers">Activision</td>
+                </tr>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="https://dev.epicgames.com/docs/services/en-US/AntiCheat/index.html" target="_blank">EOS Anti-Cheat</a></td>
+                    <td data-label="Support Level">User-mode</td>
+                    <td data-label="Detection Method">Cloud-based, signature analysis</td>
+                    <td data-label="Games">Fall Guys, Rocket League</td>
+                    <td data-label="Developers">Epic Games</td>
+                </tr>
+                <tr>
+                    <td data-label="Anti-Cheat"><a href="http://www.evenbalance.com/" target="_blank">PunkBuster</a></td>
+                    <td data-label="Support Level">User-mode</td>
+                    <td data-label="Detection Method">Signature & screenshot-based</td>
+                    <td data-label="Games">Battlefield 3 & 4, Far Cry 3</td>
+                    <td data-label="Developers">Even Balance, Inc.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function searchTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toLowerCase();
+            const rows = document.querySelectorAll("tbody tr");
+    
+            rows.forEach(row => {
+                const rowText = row.textContent.toLowerCase();
+                row.style.display = rowText.includes(filter) ? "" : "none";
+            });
+        }
+    </script>
+    <script>
+        function searchTable() {
+            filterTable();
+        }
+    
+        function filterTable() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const supportValue = document.getElementById("supportFilter").value.toLowerCase();
+            const detectionValue = document.getElementById("detectionFilter").value.toLowerCase();
+            const rows = document.querySelectorAll("tbody tr");
+    
+            rows.forEach(row => {
+                const rowText = row.textContent.toLowerCase();
+                const supportCol = row.cells[1].textContent.toLowerCase();
+                const detectionCol = row.cells[2].textContent.toLowerCase();
+    
+                const matchesSearch = rowText.includes(searchInput);
+                const matchesSupport = !supportValue || supportCol.includes(supportValue);
+                const matchesDetection = !detectionValue || detectionCol.includes(detectionValue);
+    
+                row.style.display = matchesSearch && matchesSupport && matchesDetection ? "" : "none";
+            });
+        }
+    </script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+    
+            // Save preference
+            const isDark = document.body.classList.contains("dark-mode");
+            localStorage.setItem("dark-mode", isDark);
+        }
+    
+        // Load saved theme
+        window.onload = () => {
+            const isDark = localStorage.getItem("dark-mode") === "true";
+            if (isDark) {
+                document.body.classList.add("dark-mode");
+            }
+        };
+    </script>
+    
 </body>
 </html>
+
